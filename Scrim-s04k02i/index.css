@@ -89,11 +89,18 @@ h1 {
     color: white;
     font-size: 1.5rem;
 }
+.btn:hover {
+    cursor: pointer;
+}
+
 .btn-cta {
     background-color: #10B981;
 }
-.btn:hover {
-    cursor: pointer;
+.btn-cta:hover {
+    background-color: #099466;
+}
+.btn-cta:active {
+    background-color: #4FD5A9;
 }
 
 /* Horizontal Line */
@@ -114,4 +121,32 @@ hr {
     background-color: #273549;
     color: #55F991;
     width: 18rem;
+}
+.pass-slot:hover {
+    background-color: #1A2D47;
+}
+.pass-slot:active {
+    background-color: #3B495C;
+}
+
+/* Background Mode Style */
+.background-mode {
+    display: flex;
+}
+
+.bg-btn {
+    background-color: gray;
+    margin-left: auto;
+    border: solid black 0.1rem;
+    border-radius: var(--border-radius);
+    font-size: var(--normal-text-size);
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+}
+.bg-btn:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+.bg-btn:active {
+    background-color: white;
 }
