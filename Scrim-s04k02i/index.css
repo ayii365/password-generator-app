@@ -13,7 +13,9 @@ body {
 /* 
 <div class="container">
             <div class="content">
-
+                <div class="background-mode">
+                    <button class="bg-btn" onclick="changeBackgroundMode()">Change Background</button>
+                </div>
                 <div class="header">
                     <h1 class="title">Generate a </h1>
                     <h1 class="title title-cta">random password</h1></h1>
@@ -25,14 +27,9 @@ body {
                 
                 <hr>
 
-                <div>
-                    <div class="password-slot">
-                        <p>placeholder 2</p>
-                    </div>
-                    <div class="password-slot">
-                        <p>placeholder 2</p>
-                    </div>
-                </div>
+                <div class="password-slots">
+                    <button class="pass-slot btn">placeholder 2000</button>
+                    <button class="pass-slot btn">placeholder 2000</button>
 */
 
 .container {
@@ -65,7 +62,8 @@ h1 {
 }
 
 .title {
-    font-weight: 750;
+    font-weight: 800;
+    margin-bottom: -1.4rem;
 }
 
 .title-cta {
@@ -73,7 +71,7 @@ h1 {
 }
 
 .header p {
-    margin-top: 0.7rem;
+    margin-top: 2rem;
     color: #D5D4D8;
     font-weight: 200;
     font-size: 1.6rem;
@@ -142,6 +140,7 @@ hr {
     font-size: var(--normal-text-size);
     padding: 0.4rem 1rem;
     font-size: 1rem;
+    font-weight: 550;
 }
 .bg-btn:hover {
     cursor: pointer;
@@ -149,4 +148,21 @@ hr {
 }
 .bg-btn:active {
     background-color: white;
+}
+
+/* Light Mode */
+.container.light {
+    background-color: #ECFDF5;
+}
+.container.light .title { 
+    color: #2B283A; 
+}
+.container.light .title-cta {
+    color: #10B981; 
+}
+.container.light .header p { 
+    color: #6B7280;
+}
+.container.light hr { 
+    border-color: #D5D4D8; 
 }
