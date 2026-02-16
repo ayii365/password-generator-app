@@ -1,3 +1,117 @@
+:root {
+    --normal-text-size: 1.5rem;
+    --border-radius: 0.4rem;
+}
+
 body {
     margin: 0;
+    background-color: #1c1c1c;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* 
+<div class="container">
+            <div class="content">
+
+                <div class="header">
+                    <h1 class="title">Generate a </h1>
+                    <h1 class="title title-cta">random password</h1></h1>
+
+                    <p>Never use an insecure password again.</p>
+                </div>
+
+                <button class="btn btn-cta">Generate passwords</button>
+                
+                <hr>
+
+                <div>
+                    <div class="password-slot">
+                        <p>placeholder 2</p>
+                    </div>
+                    <div class="password-slot">
+                        <p>placeholder 2</p>
+                    </div>
+                </div>
+*/
+
+.container {
+    background-color: #1f2937;
+    width: 50rem;
+    height: 50rem;
+    margin: 3rem auto;
+
+    display: flex;
+}
+
+.content {
+    margin: 8rem auto;
+    width: 40rem;
+}
+
+/* Paragraph */
+p {
+    font-size: var(--normal-text-size);
+}
+
+/* Header Design */
+.header {
+    margin-bottom: 3.5rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.title {
+    font-weight: 750;
+}
+
+.title-cta {
+    color: #4ADF86;
+}
+
+.header p {
+    margin-top: 0.7rem;
+    color: #D5D4D8;
+    font-weight: 200;
+    font-size: 1.6rem;
+}
+
+
+/* Button Design */
+.btn {
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    border: none;
+
+    color: white;
+    font-size: 1.5rem;
+}
+.btn-cta {
+    background-color: #10B981;
+}
+.btn:hover {
+    cursor: pointer;
+}
+
+/* Horizontal Line */
+hr {
+    color: #2F3E53;
+    border: solid 0.1rem;   
+    margin: 3.4rem 0; 
+}
+
+/* Password Slot Design */
+.password-slots {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pass-slot {
+    background-color: #273549;
+    color: #55F991;
+    width: 18rem;
 }
