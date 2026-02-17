@@ -154,7 +154,7 @@ hr {
 }
 
 .bg-btn {
-    background-color: gray;
+    background-color: lightgray;
     margin-left: auto;
     border: solid black 0.1rem;
     border-radius: var(--border-radius);
@@ -165,7 +165,7 @@ hr {
 }
 .bg-btn:hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: lightgreen;
 }
 .bg-btn:active {
     background-color: white;
@@ -181,8 +181,8 @@ hr {
 .container.light .title-cta {
     color: #10B981; 
 }
-.container.light .header p { 
-    color: #6B7280;
+.container.light .header p ,.container.light label{ 
+    color: darkslategray;
 }
 .container.light hr { 
     border-color: #D5D4D8; 
