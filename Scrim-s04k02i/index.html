@@ -23,8 +23,24 @@
                 </div>
                 -->
                 <form id="user-input-form">
-                    <label>Enter password length (if no password length provided, the default is 15):</label>
+                    <label>Enter password length</label>
+                    <label class="sub-text">(if no password length provided, the default will be 15):</label>
+
                     <input id="pass-len" type="number" name="userPassLen">
+
+                    <div class="check-boxes-container">
+
+                        <div class="box-section">
+                            <label>numbers:</label>
+                            <input id="numbers" type="checkbox" name="isNum">
+                        </div>
+
+                        <div class="box-section">
+                            <label class="box-section">symbols:</label>
+                            <input id="symbols" type="checkbox" name="isSymb">
+                        </div>
+
+                    </div>
 
                     <button class="btn btn-cta" type="submit">Generate passwords</button>
                 </form>

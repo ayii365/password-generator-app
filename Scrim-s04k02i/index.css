@@ -6,31 +6,9 @@
 body {
     margin: 0;
     background-color: #1c1c1c;
-    color: white;
+    color: #D5D4D8;
     font-family: sans-serif;
 }
-
-/* 
-<div class="container">
-            <div class="content">
-                <div class="background-mode">
-                    <button class="bg-btn" onclick="changeBackgroundMode()">Change Background</button>
-                </div>
-                <div class="header">
-                    <h1 class="title">Generate a </h1>
-                    <h1 class="title title-cta">random password</h1></h1>
-
-                    <p>Never use an insecure password again.</p>
-                </div>
-
-                <button class="btn btn-cta">Generate passwords</button>
-                
-                <hr>
-
-                <div class="password-slots">
-                    <button class="pass-slot btn">placeholder 2000</button>
-                    <button class="pass-slot btn">placeholder 2000</button>
-*/
 
 .container {
     background-color: #1f2937;
@@ -49,7 +27,7 @@ body {
 }
 
 /* Paragraph */
-p {
+p, label {
     font-size: var(--normal-text-size);
 }
 
@@ -120,8 +98,32 @@ hr {
 #pass-len {
     max-width: 8rem;
     height: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sub-text {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.check-boxes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem ;
     margin-bottom: 4rem;
+}
+
+.box-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 9rem;
+}
+
+.box-section input{
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 /* Password Slot Design */
