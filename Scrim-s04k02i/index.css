@@ -35,7 +35,7 @@ body {
 .container {
     background-color: #1f2937;
     width: 50rem;
-    height: 50rem;
+    min-height: 50rem;
     margin: 3rem auto;
 
     display: flex;
@@ -44,6 +44,8 @@ body {
 .content {
     margin: 8rem auto;
     width: 40rem;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Paragraph */
@@ -81,6 +83,7 @@ h1 {
 /* Button Design */
 .btn {
     padding: 0.8rem 1rem;
+    max-width: 17rem;
     border-radius: var(--border-radius);
     border: none;
 
@@ -108,6 +111,19 @@ hr {
     margin: 3.4rem 0; 
 }
 
+/* User input */
+#user-input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#pass-len {
+    max-width: 8rem;
+    height: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
 /* Password Slot Design */
 .password-slots {
     margin-top: 0;
@@ -119,7 +135,7 @@ hr {
     background-color: #273549;
     color: #55F991;
     width: 18rem;
-    height: 3rem;
+    min-height: 3rem;
 }
 .pass-slot:hover {
     background-color: #1A2D47;

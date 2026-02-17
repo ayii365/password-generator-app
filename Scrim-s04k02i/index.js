@@ -9,28 +9,48 @@ function changeBackgroundMode() {
     containerEl.classList.toggle("light");
 }
 
-function genRandNums() {
+/* Password Generation */
+const form = document.getElementById("user-input-form");
+
+form.addEventListener('submit', function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Collect all form data using the FormData object
+    const formData = new FormData(form);
+
+    // Convert FormData into a plain javascript object
+    const dataObject = Object.fromEntries(formData.entries());
+
+    // Generate password with the given password length
+    renderPassword(dataObject.userPassLen);
+});
+
+function genRandNums(length) {
     let randNums = [];
-    for (let i=0; i<15; i++){
+    for (let i=0; i<length; i++){
         randNums[i] = Math.floor(Math.random() * characters.length)
     }
     return randNums;
 }
 
-function generatePassword() {
-    const randNums = genRandNums();
+function generatePassword(length) {
+    if (!length){ // If no password length given, use default lenth of 15
+        length = 15;
+    }
+    const randNums = genRandNums(length);
 
     let password = "";
-    for (let i=0; i<15; i++){
+    for (let i=0; i<length; i++){
         password += characters[ randNums[i] ]
     }
     return password;
 }
 
-function renderPassword() {
+function renderPassword(length) {
     const passSlotEl = document.querySelectorAll(".pass-slot");
     passSlotEl.forEach( slot => {
-        slot.textContent = generatePassword();
+        slot.textContent = generatePassword(length);
     });
     
 }

@@ -15,7 +15,19 @@
                     <p>Never use an insecure password again.</p>
                 </div>
 
-                <button class="btn btn-cta" onclick="renderPassword()">Generate passwords</button>
+                <!--
+                <div class="user-input-container">
+                    <label>Enter password length (The minimum length is 7):</label>
+                    <input id="password-length" type="number">
+                    <button class="btn btn-cta" onclick="renderPassword()">Generate passwords</button>
+                </div>
+                -->
+                <form id="user-input-form">
+                    <label>Enter password length (if no password length provided, the default is 15):</label>
+                    <input id="pass-len" type="number" name="userPassLen">
+
+                    <button class="btn btn-cta" type="submit">Generate passwords</button>
+                </form>
                 
                 <hr>
 
