@@ -34,9 +34,6 @@ form.addEventListener('submit', function(event) {
     const isSymbols = checkboxStatus(dataObject.isSymb);
 
     renderPassword(length, isNumbers, isSymbols);
-
-    console.log("The value of isNumbers is: " + isNumbers);
-    console.log("The value of isSymbols is: " + isSymbols);
 });
 
 function checkboxStatus(input) {
