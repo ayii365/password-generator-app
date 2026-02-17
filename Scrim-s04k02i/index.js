@@ -9,21 +9,6 @@ function changeBackgroundMode() {
     containerEl.classList.toggle("light");
 }
 
-
-/* Password Generation */
-
-// 1. Generate 15 random numbers from 0 to array length.
-        // example generation --> 1, 24, 9, 14, 2, 3, ..., 35 = randNums[]
-
-/* 2. Create an array of lenth 15 and add the corresponding indexes from the previously generated numbers
-        examplle: 
-            password[0] = characters[ randNums[0] ] 
-            password[1] = characters[ randNums[1] ] 
-            ...
-            password[14] = characters[ randNums[14] ] 
-
-*/
-
 function genRandNums() {
     let randNums = [];
     for (let i=0; i<15; i++){
@@ -50,4 +35,20 @@ function renderPassword() {
     
 }
 
-console.log(generatePassword())
+/* Copy on click functionality */
+function copyText(el) {
+
+    // Extract the textContent
+    const text = el.textContent.trim(); //trim() removes leading and trailing whitespaces
+
+    // There is no text to copy
+    if( !text) { 
+        return;
+    }
+
+    // Copy the text to clipboard
+    navigator.clipboard.writeText(text);
+
+    // Alert the user that the text has been copied
+    alert("Copied text: " + text);
+}
