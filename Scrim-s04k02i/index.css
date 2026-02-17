@@ -13,14 +13,14 @@ body {
 .container {
     background-color: #1f2937;
     width: 50rem;
-    min-height: 50rem;
+    min-height: 60rem;
     margin: 3rem auto;
 
     display: flex;
 }
 
 .content {
-    margin: 8rem auto;
+    margin: 2.5rem auto;
     width: 40rem;
     display: flex;
     flex-direction: column;
