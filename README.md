@@ -51,7 +51,6 @@ Note: The final implementation may differ slightly as stretch goals and addition
 │── index.html
 │── index.css
 │── index.js
-│── assets/
 │── README.md
 ```
 
