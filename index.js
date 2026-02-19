@@ -35,7 +35,52 @@ form.addEventListener('submit', function(event) {
 
     renderPassword(length, isNumbers, isSymbols);
 
+    // Printing the status of the password
+    let statusEl = document.getElementById("pass-status");
+    let status = getPasswordStatus(length, isNumbers, isSymbols);
+    statusEl.textContent = "The passwords are: " + status;
+
 });
+
+function getPasswordStatus(len, isNum, isSymb) {
+    let points = 0;
+
+    if (len <=5) { // If length is 5 or below
+        points += 1;
+    } else if (len > 5 && len <=9) { // If length is 5 to 9
+        points += 2;
+    } else { // If length is 10 or more
+        points += 3
+    }
+
+    // If isNum
+        // 1 else 0
+    if (isNum) {
+        points += 1;
+    }
+
+    // If isSymb
+        // 1 else 0
+    if (isSymb) {
+        points += 1;
+    }
+
+    // ----- Points System
+    // max points = 5
+    // min points = 1
+    if (points === 1) {
+        return "Very Weak";
+    } else if (points === 2) {
+        return "Weak";
+    } else if (points === 3) {
+        return "Good";
+    } else if (points === 4) {
+        return "Strong";
+    } else {
+        return "Very Strong";
+    }
+
+}
 
 function checkboxStatus(input) {
     if (input === "on"){ // Checkbox was ticked
