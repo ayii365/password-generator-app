@@ -14,6 +14,7 @@ function changeBackgroundMode() {
 
 /* Password Generation */
 const form = document.getElementById("user-input-form");
+const passStrengthEl = document.getElementById("pass-strength");
 
 form.addEventListener('submit', function(event) {
     // Prevent the default form submission
@@ -29,11 +30,11 @@ form.addEventListener('submit', function(event) {
     const length = parseInt(dataObject.userPassLen); // Transform the length into an integer, as it is a string by default
 
 
-
     const isNumbers = checkboxStatus(dataObject.isNum);
     const isSymbols = checkboxStatus(dataObject.isSymb);
 
     renderPassword(length, isNumbers, isSymbols);
+
 });
 
 function checkboxStatus(input) {
@@ -70,35 +71,66 @@ function genRandNums(length, isNumbers, isSymbols) {
     return randNums;
 }
 
+function randFrom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]; // Returns a random element from the array, e.g. arr[7]
+}
+
+
+// Fisher-Yates shuffle
+function shuffleArray(arr) {
+    for (let i=0; i< arr.length; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i] ]
+    }
+    return arr;
+}
+
+
 function generatePassword(length, isNumbers, isSymbols) {
     if (!length){ // If no password length given, use default lenth of 15
         length = 15;
     }
-    const randNums = genRandNums(length, isNumbers, isSymbols);
 
-    let password = "";
-
-    if (isNumbers && isSymbols) {
-        for (let i=0; i<length; i++){ // All characters (numbers and symbols)
-            password += characters.allCharacters[ randNums[i] ]
-        }
-    } else if (isNumbers && !isSymbols) { // Numbers only
-        for (let i=0; i<length; i++){
-            const totalCharacters = [...characters.alphabet, ...characters.numbers]
-            password += totalCharacters[ randNums[i] ]
-        }
-    } else if (!isNumbers && isSymbols) {
-        for (let i=0; i<length; i++){ // Symbols only
-            const totalCharacters = [...characters.alphabet, ...characters.symbols]
-            password += totalCharacters[ randNums[i] ]
-        }
-    } else {
-        for (let i=0; i<length; i++){ // Alphabet only, no numbers and no symbols
-            password += characters.alphabet[ randNums[i] ]
-        }
+    // If user selects all boxes (isNumbers and isSymbols is true), then the minimum length of
+    // the password must be 3 (1 for alphabet, 1 for number, 1 for symbol)
+    // so the program needs to automatically increase user provided length if the length is <3
+    // to be able to satisfy all requirements
+    const requiredCount = (isNumbers ? 1 : 0) + (isSymbols ? 1 : 0); //  = 2 if user selects numbers and symbols
+    if (length < requiredCount) {
+        length = requiredCount + 1 // plus 1 for alphabet char
     }
 
-    return password;
+    // Build allowed pool once
+    let allowed = [...characters.alphabet];
+    if (isNumbers){
+        allowed = allowed.concat(characters.numbers);
+    }
+    if (isSymbols){
+        allowed = allowed.concat(characters.symbols);
+    }
+
+    let passwordChars = [];
+
+    // Garuntee inclusion: 1 of each. 3 total
+    passwordChars.push(randFrom(characters.alphabet)); // alphabet char
+
+    if (isNumbers){
+        passwordChars.push(randFrom(characters.numbers)); // numbers char
+    }
+    if (isSymbols){
+        passwordChars.push(randFrom(characters.symbols)); // symbols char
+    }
+
+    // Fill the rest of the array to satisfy the required length
+    while (passwordChars.length < length){
+        passwordChars.push(randFrom(allowed));
+    }
+
+    // Shuffle array to avoid having the garunteed characters from always being at the start of array
+    shuffleArray(passwordChars);
+
+    // Return as a string
+    return passwordChars.join("");
 }
 
 function renderPassword(length, isNumbers, isSymbols) {
