@@ -191,7 +191,7 @@ hr {
 .container.light .title-cta {
     color: #10B981; 
 }
-.container.light .header p ,.container.light label{ 
+.container.light .header p ,.container.light label, .container.light #pass-status{ 
     color: darkslategray;
 }
 .container.light hr { 
