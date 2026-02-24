@@ -14,7 +14,6 @@ function changeBackgroundMode() {
 
 /* Password Generation */
 const form = document.getElementById("user-input-form");
-const passStrengthEl = document.getElementById("pass-strength");
 
 form.addEventListener('submit', function(event) {
     // Prevent the default form submission
@@ -32,13 +31,14 @@ form.addEventListener('submit', function(event) {
 
     const isNumbers = checkboxStatus(dataObject.isNum);
     const isSymbols = checkboxStatus(dataObject.isSymb);
+    const lengthFinal = getFinalLength(length, isNumbers, isSymbols);
 
-    renderPassword(length, isNumbers, isSymbols);
+    renderPassword(lengthFinal, isNumbers, isSymbols);
 
     // Printing the status of the password
     let statusEl = document.getElementById("pass-status");
-    let status = getPasswordStatus(length, isNumbers, isSymbols);
-    statusEl.textContent = "The passwords are: " + status;
+    let status = getPasswordStatus(lengthFinal, isNumbers, isSymbols);
+    statusEl.textContent = "Password Strength: " + status;
 
 });
 
@@ -137,8 +137,7 @@ function generatePassword(length, isNumbers, isSymbols) {
     }
 
     // If user selects all boxes (isNumbers and isSymbols is true), then the minimum length of
-    // the password must be 3 (1 for alphabet, 1 for number, 1 for symbol)
-    // so the program needs to automatically increase user provided length if the length is <3
+    // the password must be 3 (1 for alphabet (default), 1 for number, 1 for symbol)
     // to be able to satisfy all requirements
     const requiredCount = (isNumbers ? 1 : 0) + (isSymbols ? 1 : 0); //  = 2 if user selects numbers and symbols
     if (length < requiredCount) {
@@ -178,6 +177,33 @@ function generatePassword(length, isNumbers, isSymbols) {
     return passwordChars.join("");
 }
 
+function getFinalLength(length, isNumbers, isSymbols) {
+
+    // Default length
+    if (!length) {
+        length = 15;
+    }
+
+    // Count how many extra char types required
+    const requiredFlags = [isNumbers, isSymbols];
+    let requiredCount = 0;
+
+    for (let i =0; i< requiredFlags.length; i++) {
+        if (requiredFlags[i] === true) {
+            requiredCount++;
+        }
+    }
+
+    // +1 because alphabet is always required
+    const minimumLength = requiredCount + 1;
+
+    if (length < minimumLength) {
+        length = minimumLength;
+    }
+
+    return length;
+}
+
 function renderPassword(length, isNumbers, isSymbols) {
     const passSlotEl = document.querySelectorAll(".pass-slot");
     passSlotEl.forEach( slot => {
@@ -187,7 +213,11 @@ function renderPassword(length, isNumbers, isSymbols) {
 }
 
 /* Copy on click functionality */
-function copyText(el) {
+function showStatus(msg) {
+    document.getElementById("copy-status").textContent = msg;
+}
+
+async function copyText(el) {
 
     // Extract the textContent
     const text = el.textContent.trim(); //trim() removes leading and trailing whitespaces
@@ -198,8 +228,11 @@ function copyText(el) {
     }
 
     // Copy the text to clipboard
-    navigator.clipboard.writeText(text);
-
-    // Alert the user that the text has been copied
-    alert("Copied text: " + text);
+    try {
+        await navigator.clipboard.writeText(text);
+        showStatus(`Copied to clipboard`);
+    } catch (e) {
+        showStatus(`Copy failed`)
+    }
+    
 }

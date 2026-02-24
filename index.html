@@ -13,31 +13,30 @@
                 </div>
                 <div class="header">
                     <h1 class="title">Generate a </h1>
-                    <h1 class="title title-cta">random password</h1></h1>
+                    <h1 class="title title-cta">random password</h1>
 
                     <p>Never use an insecure password again.</p>
                 </div>
 
                 <form id="user-input-form">
-                    <label>Enter password length</label>
-                    <label class="sub-text">
+                    <label for="pass-len">Enter password length</label>
+                    <div class="sub-text">
                         <ul>
-                            <li>If no password length provided, the default will be 15:</li>
-                            <li>Note: generated password length will auto adjust to include alphabet char</li>
+                            <li>If no password length provided (blank), the default will be 15:</li>
                         </ul>
-                    </label>
+                    </div>
 
-                    <input id="pass-len" type="number" name="userPassLen"  min="1">
+                    <input id="pass-len" type="number" name="userPassLen"  min="3">
 
                     <div class="check-boxes-container">
 
                         <div class="box-section">
-                            <label>numbers:</label>
+                            <label for="numbers">numbers:</label>
                             <input id="numbers" type="checkbox" name="isNum">
                         </div>
 
                         <div class="box-section">
-                            <label class="box-section">symbols:</label>
+                            <label class="box-section" for="symbols">symbols:</label>
                             <input id="symbols" type="checkbox" name="isSymb">
                         </div>
 
@@ -49,10 +48,11 @@
                 <hr>
 
                 <div class="password-slots">
-                    <button class="pass-slot btn" onclick="copyText(this)"></button>
-                    <button class="pass-slot btn" onclick="copyText(this)"></button>
+                    <button type="button" class="pass-slot btn" onclick="copyText(this)"></button>
+                    <button type="button" class="pass-slot btn" onclick="copyText(this)"></button>
                 </div>
-                <p id="pass-status"></p>
+                <p id="pass-status" class="status-noti"></p>
+                <p id="copy-status" class="status-noti"></p>
             </div>
         </div>
         <script src="index.js"></script>

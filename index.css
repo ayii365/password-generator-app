@@ -14,7 +14,7 @@ body {
 
 .container {
     background-color: #1f2937;
-    width: 47rem;
+    max-width: 47rem;
     padding: 0 2rem;
     min-height: 60rem;
     margin: 3rem auto;
@@ -32,6 +32,7 @@ body {
 /* Paragraph */
 p, label {
     font-size: var(--normal-text-size);
+    margin: 0;
 }
 
 
@@ -107,7 +108,7 @@ hr {
     font-size: 1.2rem;
 }
 
-.sub-text {
+.sub-text li {
     font-size: 1.1rem;
     font-style: italic;
     font-weight: 400;
@@ -181,6 +182,20 @@ hr {
     background-color: white;
 }
 
+/* Password Status */
+#pass-status {
+    margin-top: 2rem;
+    color: aqua;
+
+}
+
+.status-noti {
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
 /* Light Mode */
 .container.light {
     background-color: #ECFDF5;
@@ -191,11 +206,14 @@ hr {
 .container.light .title-cta {
     color: #10B981; 
 }
-.container.light .header p ,.container.light label, .container.light #pass-status{ 
+.container.light .header p ,.container.light label, .container.light .sub-text li , .container.light #pass-status, .container.light #copy-status{ 
     color: darkslategray;
 }
 .container.light hr { 
     border-color: #D5D4D8; 
+}
+.container.light #pass-status {
+    color: #10b981;
 }
 
 /* Responsive Designs */
