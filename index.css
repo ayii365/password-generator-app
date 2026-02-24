@@ -216,6 +216,10 @@ hr {
     color: #10b981;
 }
 
+.status-noti {
+    font-size: 1.3rem;
+}
+
 /* Responsive Designs */
 
 /* Laptop Screens */
@@ -330,6 +334,10 @@ hr {
         min-height: 3rem;
         max-width: none; /* Removes the max-width from the button styling */
     }
+
+    .status-noti {
+        font-size: 1.2rem;
+    }
 }
 
 
@@ -433,6 +441,10 @@ hr {
     .pass-slot {
         min-height: 2.5rem;
         max-width: none; /* Removes the max-width from the button styling */
+    }
+
+    .status-noti {
+        font-size: 1.1rem;
     }
 }
 
@@ -541,6 +553,11 @@ hr {
         max-width: none; /* Removes the max-width from the button styling */
     }
 
+    .status-noti {
+        text-align: center;
+        font-size: 1rem;
+    }
+
 }
 
 /* Small Mobile Screens */
@@ -642,6 +659,11 @@ hr {
     .pass-slot {
         min-height: 2.5rem;
         max-width: none; /* Removes the max-width from the button styling */
+    }
+
+    .status-noti {
+        text-align: center;
+        font-size: 0.9rem;
     }
 
 }

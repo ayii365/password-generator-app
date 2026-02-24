@@ -48,10 +48,12 @@ function getPasswordStatus(len, isNum, isSymb) {
 
     if (len <=5) { // If length is 5 or below
         points += 1;
-    } else if (len > 5 && len <=9) { // If length is 5 to 9
+    } else if (len > 5 && len <=8) { // If length is 6, 7, or 8
         points += 2;
-    } else { // If length is 10 or more
+    } else if (len > 8 && len <=11) { // If length is 9, 10, or 11
         points += 3
+    } else { // if length is 12 or greater
+        points += 4
     }
 
     // If isNum
@@ -67,15 +69,15 @@ function getPasswordStatus(len, isNum, isSymb) {
     }
 
     // ----- Points System
-    // max points = 5
+    // max points = 6
     // min points = 1
-    if (points === 1) {
+    if (points === 1 || points === 2) {
         return "Very Weak";
-    } else if (points === 2) {
-        return "Weak";
     } else if (points === 3) {
-        return "Good";
+        return "Weak";
     } else if (points === 4) {
+        return "Good";
+    } else if (points === 5) {
         return "Strong";
     } else {
         return "Very Strong";
