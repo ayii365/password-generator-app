@@ -11,6 +11,7 @@ const containerEl = document.querySelector(".container");
 function changeBackgroundMode() {
     containerEl.classList.toggle("light");
 }
+document.querySelector(".bg-btn").addEventListener("click", changeBackgroundMode);
 
 /* Password Generation */
 const form = document.getElementById("user-input-form");
@@ -232,7 +233,14 @@ async function copyText(el) {
         await navigator.clipboard.writeText(text);
         showStatus(`Copied to clipboard`);
     } catch (e) {
-        showStatus(`Copy failed`)
+        showStatus(`Copy failed`);
     }
-    
 }
+
+const passSlots = document.querySelectorAll(".pass-slot");
+
+passSlots.forEach (function(btn) {
+    btn.addEventListener("click", function() {
+        copyText(btn);
+    })
+})
