@@ -268,7 +268,6 @@ hr {
     }
 
     .title {
-        font-weight: 800;
         margin-bottom: -1.2rem;
     }
 
@@ -375,7 +374,6 @@ hr {
     }
 
     .title {
-        font-weight: 800;
         margin-bottom: -1.1rem;
     }
 
@@ -479,8 +477,7 @@ hr {
     }
 
     .title {
-        font-weight: 800;
-        margin-bottom: -1.2rem;
+        margin-bottom: -0.9rem;
     }
 
     .header p {
@@ -587,8 +584,7 @@ hr {
     }
 
     .title {
-        font-weight: 800;
-        margin-bottom: -0.8rem;
+        margin-bottom: -0.6rem;
     }
 
     .header p {

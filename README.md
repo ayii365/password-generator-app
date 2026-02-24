@@ -4,6 +4,9 @@ Originally inspired by a Scrimba JavaScript challenge and extended with addition
 
 The goal of this project is to practice DOM manipulation, JavaScript logic, and clean UI implementation by building a secure random password generator **from scratch**.
 
+## 🌐 Live Demo
+👉 https://secure-password1.netlify.app/
+
 ---
 
 ## 🚀 Live Goals of This Project
