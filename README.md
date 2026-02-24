@@ -1,6 +1,6 @@
 # 🔐 Random Password Generator
 
-A simple password generator built as part of a Scrimba JavaScript project.
+Originally inspired by a Scrimba JavaScript challenge and extended with additional features and UI improvements.
 
 The goal of this project is to practice DOM manipulation, JavaScript logic, and clean UI implementation by building a secure random password generator **from scratch**.
 
@@ -26,12 +26,24 @@ Note: The final implementation may differ slightly as stretch goals and addition
 
 ---
 
-### 🌟 Stretch Goals (Planned / In Progress)
+### 🌟 Stretch Goals Implemented
 
 * Ability to set custom password length
 * Copy-to-clipboard on click
 * Toggle symbols ON/OFF
 * Toggle numbers ON/OFF
+
+---
+
+## ✨ Features
+
+- Generate two secure random passwords
+- Custom password length support
+- Optional numbers and symbols
+- Password strength indicator
+- Copy-to-clipboard functionality
+- Light / Dark mode toggle
+- Fully responsive layout
 
 ---
 
@@ -70,13 +82,5 @@ Note: The final implementation may differ slightly as stretch goals and addition
 
 This repository intentionally starts with the original Scrimba starter files.
 Future commits will show incremental improvements and added features.
-
----
-
-## 📌 Future Improvements
-
-* Better mobile responsiveness
-* Dark/light theme toggle
-* Improved password strength indicators
 
 ---
