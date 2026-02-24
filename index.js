@@ -41,6 +41,10 @@ form.addEventListener('submit', function(event) {
     let status = getPasswordStatus(lengthFinal, isNumbers, isSymbols);
     statusEl.textContent = "Password Strength: " + status;
 
+    // Clear the "copied text"
+    let copyStatus = document.getElementById("copy-status");
+    copyStatus.textContent = "";
+
 });
 
 function getPasswordStatus(len, isNum, isSymb) {
